@@ -16,6 +16,7 @@ Sept 29, 2017 - Add additional methods to Book, Movie, and Paining classes
 Oct  01, 2017 - Create GUI design
 Oct  03, 2017 - Work on date format. Still getting an error
 Oct  05, 2017 - Removed date with permission from Dr. Woodcock
+Oct  10, 2017 - Correctly improperly done polymorphism after discussion with Dr Woodcock
 ****************************************************** 
 I encountered a lot of issues with the DATE in this program. It kept causing
 errors, making it difficult to test the rest of the program. I was given

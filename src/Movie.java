@@ -1,10 +1,20 @@
 
 
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Class Name: Movie
+Class Author: Raelene Gomes
+******************************************************
+This class contains all of the methods for the Movie item.
+******************************************************
+Sept 26, 2017
+******************************************************
+Oct  03, 2017 - Work on date format. Still getting an error
+Oct  05, 2017 - Removed date with permission from Dr. Woodcock
+Oct  10, 2017 - Changed printableString() to use super
+****************************************************** 
+*/
+ 
 
 /**
  *
@@ -29,6 +39,25 @@ public class Movie extends StoreItem{
         movieCount++;
     }
     
+    /*
+‘******************************************************
+‘***  printableString()
+‘***  Raelene Gomes
+‘******************************************************
+‘*** This method builds a string to display the information the user inputs
+‘*** Method Inputs: none
+‘*** Return value: String string
+‘******************************************************
+‘*** Sept 26, 2017
+‘******************************************************
+ */
+    public String printableString()
+    {
+        String string = (super.printableString() + "\nDirector: " + 
+            getDirector() + "\nActor: " +
+            getActor() +"\nActress: " + getActress());
+        return string;
+    }
     public String getTitle() // if comment this out
     {
         return title;
@@ -99,12 +128,6 @@ public class Movie extends StoreItem{
         this.actress = actress;
     }
     
-    public String printableString()
-    {
-        String string = (super.printableString() + "\nDirector: " + 
-            getDirector() + "\nActor: " +
-            getActor() +"\nActress: " + getActress());
-        return string;
-    }
+
     
 }

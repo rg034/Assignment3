@@ -5,10 +5,18 @@ import java.util.Date;
 
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+Class Name: Painting
+Class Author: Raelene Gomes
+******************************************************
+This class contains all of the methods for the Painting item.
+******************************************************
+Sept 26, 2017
+******************************************************
+Oct  03, 2017 - Work on date format. Still getting an error
+Oct  05, 2017 - Removed date with permission from Dr. Woodcock
+Oct  10, 2017 - Changed printableString() to use super
+****************************************************** 
+*/
 
 /**
  *
@@ -31,6 +39,18 @@ public class Painting extends StoreItem{
         paintCount++;
     }
     
+     /*
+‘******************************************************
+‘***  printableString()
+‘***  Raelene Gomes
+‘******************************************************
+‘*** This method builds a string to display the information the user inputs
+‘*** Method Inputs: none
+‘*** Return value: String string
+‘******************************************************
+‘*** Sept 26, 2017
+‘******************************************************
+ */
     public String printableString()
     {
         String string = (super.printableString()+ "\nMedia: " +

@@ -43,6 +43,25 @@ public class StoreItem {
         itemCount++;
     }
     
+     /*
+‘******************************************************
+‘***  printableString()
+‘***  Raelene Gomes
+‘******************************************************
+‘*** This method builds a string to display the information the user inputs
+‘*** Method Inputs: none
+‘*** Return value: String string
+‘******************************************************
+‘*** Sept 22, 2017
+‘******************************************************
+ */
+    public String printableString()
+    {
+        String string = ("Title: " + getTitle() + "\nAuthor: " + getAuthor() + 
+                "\nPurchase Price: " + getPurchasePrice() + "\nAsking Price: " +
+                getAskingPrice());
+        return string;
+    }
     public String getTitle()
     {
         return title;
@@ -112,13 +131,7 @@ public class StoreItem {
         return commission;
     }
     
-    public String printableString()
-    {
-        String string = ("Title: " + getTitle() + "\nAuthor: " + getAuthor() + 
-                "\nPurchase Price: " + getPurchasePrice() + "\nAsking Price: " +
-                getAskingPrice());
-        return string;
-    }
+
     
     
 }
