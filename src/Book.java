@@ -25,13 +25,11 @@ public class Book extends StoreItem{
         this.genre = genre;
         bookCount++;
     }
-    
+    @Override
     public String printableString()
     {
-        String string = ("Title: " + getTitle() + 
-            "\nAuthor: " + getAuthor() + "\nPurchase Price: " + 
-            getPurchasePrice() + "\nAsking Price: " + 
-            getAskingPrice() + "\nGenre: " + getGenre());
+        String string = (super.printableString() + "\nGenre: " + getGenre());
+        
         return string;
     }
     

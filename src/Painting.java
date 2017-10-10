@@ -33,10 +33,7 @@ public class Painting extends StoreItem{
     
     public String printableString()
     {
-        String string = ("Title: " + getTitle() + "\nAuthor: " + 
-            getAuthor() + "\nPurchase Price: " + 
-            getPurchasePrice() + "\nAsking Price: " + 
-            getAskingPrice() + "\nMedia: " +
+        String string = (super.printableString()+ "\nMedia: " +
             getMedia() + "\nHeight: " + getHeight() + "\nWidth: " +
             getWidth());
         return string;

@@ -1,5 +1,4 @@
 
-import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +12,7 @@ import java.util.Date;
  */
 public class Movie extends StoreItem{
     static int movieCount;
-    String title;
+    String title; // if comment this out
     String actor;
     String actress;
     String director;
@@ -23,19 +22,19 @@ public class Movie extends StoreItem{
                     String actress, String director)
     {
         super(title, author, purchasePrice, askingPrice);
-        this.title = title;
+        this.title = title;  // if comment this out
         this.actor = actor;
         this.actress = actress;
         this.director = director;
         movieCount++;
     }
     
-    public String getTitle()
+    public String getTitle() // if comment this out
     {
         return title;
     }
     
-    public void setTitle(String title)
+    public void setTitle(String title) // if comment this out
     {
         this.title = title;
     }
@@ -102,13 +101,9 @@ public class Movie extends StoreItem{
     
     public String printableString()
     {
-        String string = ("Title: " + getTitle() + "\nAuthor: " + 
-            getAuthor() + "\nPurchase Price: " + 
-            getPurchasePrice() + "\nAsking Price: " + 
-            getAskingPrice() + "\nDirector: " +
+        String string = (super.printableString() + "\nDirector: " + 
             getDirector() + "\nActor: " +
-            getActor() +"\nActress: " +
-            getActress());
+            getActor() +"\nActress: " + getActress());
         return string;
     }
     

@@ -54,12 +54,8 @@ public class GUI extends javax.swing.JFrame {
    // int bookCount = 0;
     //int paintingCount = 0;
     //int movieCount = 0;
-    Book[] numBooks = new Book[20];
-    Movie[] numMovie = new Movie[20];
-    Painting[] numPainting = new Painting[20];
-    
-    StoreItem storeItem = new StoreItem(title, author, 
-            purchasePrice, askingPrice);
+    StoreItem[] numStoreItems = new StoreItem[20];
+       
     Book book = new Book(title, author,
             purchasePrice, askingPrice, genre);
     Movie movie = new Movie(title, author,
@@ -433,18 +429,15 @@ public class GUI extends javax.swing.JFrame {
             purchasePrice = Integer.parseInt(jTextField5.getText());
             askingPrice = Integer.parseInt(jTextField4.getText());
 
-//            StoreItem storeItem = new StoreItem(title, author, 
-//            purchasePrice, askingPrice);
-
         //book
         if(index == 0)
         {
             genre = jTextField6.getText(); 
-            Book book = new Book(title, author, purchasePrice, askingPrice, genre);
+            book = new Book(title, author, purchasePrice, askingPrice, genre);
 //            Book book = new Book(title, author,
 //                purchasePrice, askingPrice, genre);
             jTextArea1.setText(book.printableString());
-            numBooks[book.bookCount] = book;
+            //numBooks[book.bookCount] = book;
         }
         //movie
         else if(index == 1)
@@ -453,10 +446,10 @@ public class GUI extends javax.swing.JFrame {
             actor = jTextField9.getText();
             actress = jTextField10.getText();
 
-            Movie movie = new Movie(title, author,
+            movie = new Movie(title, author,
                 purchasePrice, askingPrice, director, actor, actress);
             jTextArea1.setText(movie.printableString());
-            numMovie[movie.movieCount] = movie;
+           // numMovie[movie.movieCount] = movie;
             
             
         }
@@ -466,10 +459,10 @@ public class GUI extends javax.swing.JFrame {
             media = jTextField8.getText();
             width = Integer.parseInt(jTextField3.getText());
             height = Integer.parseInt(jTextField11.getText());
-            Painting painting = new Painting(title, author,
+            painting = new Painting(title, author,
             purchasePrice, askingPrice,height, width, media);
             jTextArea1.setText(painting.printableString());
-            numPainting[painting.paintCount] = painting;
+           // numPainting[painting.paintCount] = painting;
         }
 
     }

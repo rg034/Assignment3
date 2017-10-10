@@ -1,4 +1,16 @@
-
+/*
+Class Name: StoreItem
+Class Author: Raelene Gomes
+******************************************************
+This class is the head class. All of the other classes extend this class. 
+I stores the Title, Author, Purchase Price, and Asking Price of an item. 
+******************************************************
+Sept 22, 2017
+******************************************************
+Oct  03, 2017 - Work on date format. Still getting an error
+Oct  05, 2017 - Removed date with permission from Dr. Woodcock
+****************************************************** 
+*/
 import java.util.Date;
 
 /*
@@ -100,7 +112,13 @@ public class StoreItem {
         return commission;
     }
     
-
+    public String printableString()
+    {
+        String string = ("Title: " + getTitle() + "\nAuthor: " + getAuthor() + 
+                "\nPurchase Price: " + getPurchasePrice() + "\nAsking Price: " +
+                getAskingPrice());
+        return string;
+    }
     
     
 }
