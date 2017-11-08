@@ -27,6 +27,7 @@ permission to remove it.
  
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -51,11 +52,12 @@ public class GUI extends javax.swing.JFrame {
     String actress = "";
     String director = "";
     String genre = "";
-    //int itemCount = 0;
-   // int bookCount = 0;
-    //int paintingCount = 0;
-    //int movieCount = 0;
-    StoreItem[] numStoreItems = new StoreItem[20];
+    int count = 0;
+    int pointer = 0;
+    int index = 0;
+
+    //going to use this to show polymorphism
+    StoreItem[] numStoreItems = new StoreItem[5];
        
     Book book = new Book(title, author,
             purchasePrice, askingPrice, genre);
@@ -110,9 +112,8 @@ public class GUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,34 +202,25 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("View All Movies");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("<");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("View All  Paintings");
-        jButton3.setEnabled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("View All Books");
-        jButton4.setEnabled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButton6.setText(">");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 133, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addGap(142, 142, 142))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -285,34 +277,25 @@ public class GUI extends javax.swing.JFrame {
                                         .addComponent(jLabel9))))
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton5)
+                        .addGap(136, 136, 136)
+                        .addComponent(jButton6))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 158, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
-                .addGap(142, 142, 142))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -344,7 +327,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
@@ -375,9 +358,10 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         //change input accessibility based on selection
-        int index = jComboBox1.getSelectedIndex();
+        index = jComboBox1.getSelectedIndex();
         if(index == 0)
         {
             jTextField6.enable(true);
@@ -416,17 +400,9 @@ public class GUI extends javax.swing.JFrame {
         // get inputs from GUI
         try
         {
-            int index = jComboBox1.getSelectedIndex();
+            index = jComboBox1.getSelectedIndex();
             title = jTextField2.getText();
             author = jTextField1.getText();
-//            try 
-//            {
-//                dateAquired = df.parse(jTextField3.getText());
-//            } 
-//            catch (ParseException ex) 
-//            {
-//                jTextArea1.setText("Error with date format");
-//            }
             purchasePrice = Integer.parseInt(jTextField5.getText());
             askingPrice = Integer.parseInt(jTextField4.getText());
 
@@ -438,7 +414,10 @@ public class GUI extends javax.swing.JFrame {
 //            Book book = new Book(title, author,
 //                purchasePrice, askingPrice, genre);
             jTextArea1.setText(book.printableString());
-            //numBooks[book.bookCount] = book;
+            
+            //This is polymorphism!! You can add a book to the StoreItem array
+            numStoreItems[count] = (book);
+         
         }
         //movie
         else if(index == 1)
@@ -450,9 +429,10 @@ public class GUI extends javax.swing.JFrame {
             movie = new Movie(title, author,
                 purchasePrice, askingPrice, director, actor, actress);
             jTextArea1.setText(movie.printableString());
-           // numMovie[movie.movieCount] = movie;
             
-            
+            //This is polymorphism!! You can add a movie to the StoreItem array
+            numStoreItems[count] = (movie); 
+                     
         }
         //painting
         else
@@ -463,9 +443,25 @@ public class GUI extends javax.swing.JFrame {
             painting = new Painting(title, author,
             purchasePrice, askingPrice,height, width, media);
             jTextArea1.setText(painting.printableString());
-           // numPainting[painting.paintCount] = painting;
+            
+            //This is polymorphism!! You can add a movie to the StoreItem array
+            numStoreItems[count] = (painting);
         }
-
+        
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        
+        //increase count
+        count++;
     }
     catch(NumberFormatException e)
     {
@@ -495,33 +491,69 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //view books
-        for(int i=0; i<book.bookCount; i++)
-        {
-            jTextArea1.append("\n\nBook #" + i + book.printableString());
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //view movies
-        for(int i=0; i<movie.movieCount; i++)
-        {
-            jTextArea1.append("\n\nMovie #" + i + movie.printableString());
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // view paintings
-        for(int i=0; i<painting.paintCount; i++)
-        {
-            jTextArea1.append("\n\nPainting #" + i + painting.printableString());
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+        try
+        {    
+            //left arrow
+            
+            //clear text area           
+            jTextArea1.setText("");
+            
+            //only print if not null
+            if(numStoreItems[pointer]!= null)
+            {    
+                if(pointer < count)
+                {
+                    pointer = count - 1;   
+                }
+                jTextArea1.setText(numStoreItems[pointer].printableString());
+                //System.out.println(numStoreItems[pointer].printableString());
+                pointer--;
+            }
+            else
+            {
+                pointer = count - 1;
+            }
+            
+        }
+        catch(Exception e)
+        {
+            jTextArea1.setText("Error. Nothing in this spot in array. ");
+        }
+         
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try
+        {
+            // right arrow  
+            
+            //clear text area
+            jTextArea1.setText("");
+            
+            //only print if not null
+            if(numStoreItems[pointer]!= null)
+            {    
+                if(pointer >= count)
+                {
+                    pointer = 0;
+                }    
+                jTextArea1.setText(numStoreItems[pointer].printableString());
+                //System.out.println(numStoreItems[pointer].printableString());
+                pointer++;
+            }
+            else
+            {
+                pointer = 0;
+            }
+            
+        }
+        catch(Exception e)
+        {
+            jTextArea1.setText("Error. Nothing in this spot in array. ");
+      
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,9 +592,8 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
